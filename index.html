@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Assignment 37</title>
+   
+</head>
+<body>
+    <header>
+        <h1>Google Meet</h1>
+        <input type="text" id="search" placeholder="Search participants...">
+    </header>
+    <div class="main" id="userList">
+        <div class="user-card" data-name="Pawan Kalyan">
+            <img src="./img/Pawan-kalyan.png" alt="User">
+            <h3>Pawan Kalyan</h3>
+            <p>pawankalyan1@gmail.com</p>
+        </div>
+        <div class="user-card" data-name="Allu Arjun">
+            <img src="./img/allua.jpg" alt="User">
+            <h3>Allu Arjun </h3>
+            <p>alluarjun1@gmail.com</p>
+        </div>
+        <div class="user-card" data-name="Yash Dasgupta.">
+            <img src="./img/hero-yash.webp" alt="User">
+            <h3>Yash Dasgupta</h3>
+            <p>yashdasgupta3@gmail.com</p>
+        </div>
+        <div class="user-card" data-name="Vijay Thalapathy">
+            <img src="./img/thalapathy.webp" alt="User">
+            <h3>Vijay Thalapathy</h3>
+            <p>thalapathy@gmail.com</p>
+        </div>
+    </div>
+    <script>
+        const searchInput = document.getElementById('search');
+        const userList = document.getElementById('userList');
+
+        searchInput.addEventListener('input', () => {
+            const filter = searchInput.value.toLowerCase();
+            const userCards = userList.querySelectorAll('.user-card');
+
+            userCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                if (name.includes(filter)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
